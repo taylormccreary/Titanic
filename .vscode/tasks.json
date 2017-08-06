@@ -4,7 +4,7 @@
     "version": "2.0.0",
     "command": "py",
         "args": [
-          "explore.py"
+          "main.py"
         ],
         "group": {
             "kind": "build",
