@@ -3,7 +3,7 @@ import pandas as pd
 
 def get_survival(passenger, gender_probs):
     p_gender = passenger['Sex']
-    return gender_probs.loc[p_gender,'Survived']
+    return int(round(gender_probs.loc[p_gender,'Survived']))
 
 # read in training data
 train_df = pd.read_csv('train.csv')
@@ -25,13 +25,16 @@ print(gender_df.loc['male','Survived'])
 output_df = pd.DataFrame(index=test_df['PassengerId'])
 
 # currently, just predicting that everyone dies
-output_df['Survived'] = 0
+output_df['Survived'] = 0 # this must be a float
 
 # iterate through the test data, using the model to compute the Survival
 for index, row in test_df.iterrows() :
     # get the output row corresponding to this row in test_df
     # that row, the 'Survived' column should be set to be a function of the test_df row
-    output_df.loc[index]['Survived'] = get_survival(row)
+    testval = get_survival(row, gender_df)
+    #print(testval)
+    ind = row['PassengerId']
+    output_df.set_value(ind, 'Survived', testval)
 
 # exporting the DataFrame of ids and predictions into a .csv
 output_df.to_csv('submission.csv')
