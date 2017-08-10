@@ -23,26 +23,11 @@ def get_survival(passenger):
 
 # read in test data
 test_df = pd.read_csv('test.csv')
-# output_df is the pandas DataFrame that contains the final output
-output_df = pd.DataFrame(index=test_df['PassengerId'])
-
-# currently, just predicting that everyone dies
-output_df['Survived'] = 0
 
 # iterate through the test data, using the model to compute the Survival
-"""
-for index, row in test_df.iterrows() :
-    # get the output row corresponding to this row in test_df
-    # that row, the 'Survived' column should be set to be a function of the test_df row
-    testval = get_survival(row, gender_df)
-    #print(testval)
-    ind = row['PassengerId']
-    # Note: since we are trying to set the 'Survived' column to testval, the type of
-    # testval has to match the type that the 'Survived' column originally was.
-    # In this case, they are both ints.
-    output_df.set_value(ind, 'Survived', testval)
-"""
+# the Survived column is being added to the test data DataFrame
+# fix these red squiggles!
 test_df['Survived'] = test_df.apply(get_survival, axis=1)
 
 # exporting the DataFrame of ids and predictions into a .csv
-test_df[['PassengerId','Survived']].to_csv('submission.csv', index=False)
+test_df[['PassengerId', 'Survived']].to_csv('submission.csv', index=False)
