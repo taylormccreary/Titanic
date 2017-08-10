@@ -1,6 +1,3 @@
 {
-    "python.pythonPath": "C:\\WINDOWS\\py",
-    "python.linting.pylintEnabled": true,
-    "python.linting.enabled": true,
-    "python.linting.lintOnSave": true
+    "python.pythonPath": "C:\\WINDOWS\\py"
 }

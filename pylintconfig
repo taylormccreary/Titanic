@@ -1,0 +1,2 @@
+--const-rgx=[a-z]+
+--include-naming-hint=y
