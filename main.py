@@ -26,7 +26,7 @@ test_df = pd.read_csv('test.csv')
 
 # iterate through the test data, using the model to compute the Survival
 # the Survived column is being added to the test data DataFrame
-# fix these red squiggles!
+# fix these red squiggles...!!
 test_df['Survived'] = test_df.apply(get_survival, axis=1)
 
 # exporting the DataFrame of ids and predictions into a .csv
