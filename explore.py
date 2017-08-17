@@ -3,28 +3,15 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# x = np.linspace(0, 1, 201)
-# y = np.sin((2*np.pi*x)**2)
+df = pd.read_csv('train.csv')
 
-# plt.plot(x, y, 'red')
+# The following code creates a histogram of the ages of the Titanic passengers
+# x = df['Age']
+# y = df['Survived']
+# plt.axes([0, 0, .5, .5])
+# plt.hist(x.dropna(), bins=15)
+# plt.xlabel('Age')
 # plt.show()
 
-
-
-df = pd.read_csv('train.csv')
-x = df['Age']
-y = df['Survived']
-#plt.scatter(x, y)
-plt.axes([0, 0, .5, .5])
-plt.hist(x.dropna(), bins=15)
-plt.xlabel('Age')
-plt.show()
-
-#for index, row in df.iterrows() :
-#    print(row['Sex'], row['Survived'])
-
-#print(df.columns.values)
-#print(df.describe())
-
-#df.plot()
-#plt.show()
+# prints all passengers older than 65
+# print(df.loc[lambda dframe: dframe.Age > 65])
