@@ -18,12 +18,12 @@ train_df['Pclass'].fillna(-1, inplace=True)
 # Make all the NaN Age values -1
 train_df['Age'].fillna(-1, inplace=True)
 
-clf = clf.fit(train_df.loc[:, ['Pclass', 'Sex', 'Age']], train_df.loc[:, 'Survived'])
+clf = clf.fit(train_df.loc[:, ['Pclass', 'Sex']], train_df.loc[:, 'Survived'])
 
 def get_survival(passenger):
     """ Takes as input a row of a data frame corresponding to a passenger,
     and uses a decision tree classifier to assign a value to 'Survived' """
-    passenger = passenger[['Pclass', 'Sex', 'Age']].values.reshape(1, -1)
+    passenger = passenger[['Pclass', 'Sex']].values.reshape(1, -1)
     res = clf.predict(passenger)
     return int(res[0])
 
