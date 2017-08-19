@@ -23,9 +23,9 @@ clf = clf.fit(train_df.loc[:, ['Pclass', 'Sex', 'Age']], train_df.loc[:, 'Surviv
 def get_survival(passenger):
     """ Takes as input a row of a data frame corresponding to a passenger,
     and uses a decision tree classifier to assign a value to 'Survived' """
-    passenger = passenger['Pclass', 'Sex', 'Age']
+    passenger = passenger[['Pclass', 'Sex', 'Age']].values.reshape(1, -1)
     res = clf.predict(passenger)
-    return res
+    return int(res[0])
 
 # read in test data
 test_df = pd.read_csv('test.csv')
