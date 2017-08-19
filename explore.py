@@ -5,13 +5,26 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv('train.csv')
 
-# The following code creates a histogram of the ages of the Titanic passengers
-# x = df['Age']
+# We want to compare a the histogram of a variable for the passengers
+# that survived verses those who didn't.
+var = 'Pclass'
+# so we have to set 'x' to the values of var which are associated with
+# passengers who survived.
+#x = df[var]
+x = df.loc[(df['Survived'] == 1), var]
+plt.subplot(2, 1, 1)
+plt.hist(x.dropna())
+plt.xlabel(var)
+
+#var = 'Parch'
+#x = df[var]
+x = df.loc[(df['Survived'] == 0), var]
 # y = df['Survived']
 # plt.axes([0, 0, .5, .5])
-# plt.hist(x.dropna(), bins=15)
-# plt.xlabel('Age')
-# plt.show()
+plt.subplot(2, 1, 2)
+plt.hist(x.dropna())
+plt.xlabel(var)
+plt.show()
 
 # prints all passengers older than 65
 # print(df.loc[lambda dframe: dframe.Age > 65])
