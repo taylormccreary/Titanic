@@ -7,7 +7,7 @@ df = pd.read_csv('train.csv')
 
 # We want to compare a the histogram of a variable for the passengers
 # that survived verses those who didn't.
-var = 'Age'
+var = 'Fare'
 # so we have to set 'x' to the values of var which are associated with
 # passengers who survived.
 #x = df[var]
