@@ -16,12 +16,12 @@ train_df['Sex'].fillna(-1, inplace=True)
 # Make all the NaN Pclass values -1
 train_df['Pclass'].fillna(-1, inplace=True)
 # Make all the NaN Age values -1
-train_df['Age'].fillna(-10, inplace=True)
-get_agegrp = lambda x: round(x / 10.0)
+train_df['Age'].fillna(-20, inplace=True)
+get_agegrp = lambda x: round(x / 20.0)
 train_df['AgeGrp'] = train_df['Age'].map(get_agegrp)
 # Make all the NaN Fare values -1
-train_df['Fare'].fillna(-20, inplace=True)
-get_faregrp = lambda x: round(x / 20.0)
+train_df['Fare'].fillna(-50, inplace=True)
+get_faregrp = lambda x: round(x / 50.0)
 train_df['FareGrp'] = train_df['Fare'].map(get_faregrp)
 
 #clf = clf.fit(train_df.loc[:, ['Pclass', 'Sex']], train_df.loc[:, 'Survived'])
@@ -43,11 +43,10 @@ test_df['Sex'].fillna(-1, inplace=True)
 # Make all the NaN Pclass values -1
 test_df['Pclass'].fillna(-1, inplace=True)
 # Make all the NaN Age values -1
-test_df['Age'].fillna(-1, inplace=True)
-get_agegrp = lambda x: round(x / 10.0)
+test_df['Age'].fillna(-10, inplace=True)
 test_df['AgeGrp'] = test_df['Age'].map(get_agegrp)
 # Make all the NaN Fare values -1
-test_df['Fare'].fillna(-20, inplace=True)
+test_df['Fare'].fillna(-50, inplace=True)
 test_df['FareGrp'] = test_df['Fare'].map(get_faregrp)
 
 # iterate through the test data, using the model to compute the Survival
