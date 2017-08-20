@@ -17,7 +17,7 @@ train_df['Sex'].fillna(-1, inplace=True)
 train_df['Pclass'].fillna(-1, inplace=True)
 # Make all the NaN Age values -1
 train_df['Age'].fillna(-1, inplace=True)
-get_agegrp = lambda x: 0 if x < 12 else 1
+get_agegrp = lambda x: 0 if x < 5 and x >=0 else 1
 train_df['AgeGrp'] = train_df['Age'].map(get_agegrp)
 # Make all the NaN Fare values -1
 train_df['Fare'].fillna(-50, inplace=True)
