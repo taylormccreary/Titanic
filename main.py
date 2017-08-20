@@ -17,7 +17,7 @@ train_df['Sex'].fillna(-1, inplace=True)
 train_df['Pclass'].fillna(-1, inplace=True)
 # Make all the NaN Age values -1
 train_df['Age'].fillna(-1, inplace=True)
-get_agegrp = lambda x: 0 if x < 5 and x >=0 else 1
+get_agegrp = lambda x: 0 if x < 5 and x >= 0 else 1
 train_df['AgeGrp'] = train_df['Age'].map(get_agegrp)
 # Make all the NaN Fare values -1
 train_df['Fare'].fillna(-50, inplace=True)
@@ -25,12 +25,12 @@ get_faregrp = lambda x: round(x / 50.0)
 train_df['FareGrp'] = train_df['Fare'].map(get_faregrp)
 
 #clf = clf.fit(train_df.loc[:, ['Pclass', 'Sex']], train_df.loc[:, 'Survived'])
-clf = clf.fit(train_df[['AgeGrp']], train_df['Survived'])
+clf = clf.fit(train_df[['Sex', 'AgeGrp']], train_df['Survived'])
 
 def get_survival(passenger):
     """ Takes as input a row of a data frame corresponding to a passenger,
     and uses a decision tree classifier to assign a value to 'Survived' """
-    passenger = passenger[['AgeGrp']].values.reshape(1, -1)
+    passenger = passenger[['Sex', 'AgeGrp']].values.reshape(1, -1)
     res = clf.predict(passenger)
     return int(res[0])
 
