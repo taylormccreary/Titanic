@@ -13,6 +13,8 @@ var = 'Fare'
 #x = df[var]
 x = df.loc[(df['Survived'] == 1), var]
 plt.subplot(2, 1, 1)
+plt.xlim([0, 550])
+plt.ylim((0, 300))
 plt.hist(x.dropna(), bins=20)
 plt.xlabel(var)
 
@@ -22,6 +24,8 @@ x = df.loc[(df['Survived'] == 0), var]
 # y = df['Survived']
 # plt.axes([0, 0, .5, .5])
 plt.subplot(2, 1, 2)
+plt.xlim([0, 550])
+plt.ylim((0, 300))
 plt.hist(x.dropna(), bins=20)
 plt.xlabel(var)
 plt.show()
